@@ -1,32 +1,36 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+<!-- 路由动态显示 -->
+   <router-view />
+   <!-- 底部导航 -->
+
+    
+   <NavBottom :lists="lists"/>
   </div>
+  
 </template>
+<script>
+import NavBottom from './components/NavBottom'
+export default {
+name:'App',
+data(){
+  return {
+    lists:[
+            {title:'首页',url:'/home',content:'iconiconfontzhizuobiaozhun023101'},
+            {title:'发现',url:'/find',content:'iconfaxian3'},
+            {title:'订单',url:'/order',content:'icondingdan'},
+            {title:'我的',url:'/mine',content:'iconwodedangxuan'}
+        ]
+
+  }
+},
+components:{
+  NavBottom
+}
+}
+</script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+@import './assets/index.css'
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
