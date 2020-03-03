@@ -5,7 +5,7 @@
           <router-link :to="'/detail/'+v.id">
         <img :src="v.picture" style="width:30%;"/></router-link>
         <p>{{v.name.slice(0,9)}}</p>
-        <p>价格: <b style="color:#f42;">{{v.min_price}}￥</b><button @click="propgoods(v.id)">购买</button></p>
+        <p>价格: <b style="color:#f42;">{{v.min_price}}￥</b><button @click="BuyIt(v.id)">购买</button></p>
       </li> 
     </ul>
   </div>
@@ -35,7 +35,7 @@ export default {
           console.log(error);
         });
     },
-    propgoods(id){
+async BuyIt(id){ 
       console.log(id);
        this.$store.commit( 'setId',id);//利用vuex传递id
        this.count++;

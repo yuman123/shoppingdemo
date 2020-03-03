@@ -113,7 +113,7 @@ html,body {
 .index-main >ul {
   margin: 10px;
 }
-.list{
+.list,.order{
   padding-bottom: 60px;
   overflow: scroll;
 }/*fixed布局会遮挡文字部分,所以给他所在容器设置了一个padding-bottom,高度与设置fixed的高度一致*/

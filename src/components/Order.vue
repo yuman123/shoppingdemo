@@ -11,7 +11,7 @@
     </div>
     </li>
 
-      <p style="padding-right: 6%;float:right">合计:<b style="color:#f42;">{{totalprice}}￥</b> <button style="color:#fff;background-color:#f33;outline-style:none;border:1px solid #f42;border-radius:12px">确认下单</button></p>
+      <li style="padding-right: 6%;float:right">合计:<b style="color:#f42;">{{totalprice}}￥</b> <button style="color:#fff;background-color:#f33;outline-style:none;border:1px solid #f42;border-radius:12px">确认下单</button></li>
     
     
     </ul>
@@ -26,10 +26,10 @@ export default {
       id: [],//接收的id
       newobj: {},//包含数量和id(已去重)
       orderdata:[],//包含这个id下的所有数据
-      finallydata:JSON.parse(localStorage.getItem("orderdatas                                                                                                                                                                                                                        ") || '[]')//整合以后的数据，读取存储的数据，没有为空数组
+      finallydata:[] //整合以后的数据
     };
   },
-  computed:{
+  computed:{ 
     totalprice(){//时时刻刻计算总价
     // if(this.finallydata.length >= 2){
     //   for(let k = 0;k < this.finallydata.length;k++){
@@ -43,15 +43,18 @@ export default {
     //   }
 
     // }
-      
+      this.id = this.$store.state.id;//接收id
+      localStorage.setItem('productID',JSON.stringify(this.id));
       let sum = 0;
       for(let i = 0; i < this.finallydata.length;i++){
         this.finallydata[i].sum = this.finallydata[i].price *this.finallydata[i].num;
         sum += this.finallydata[i].price *this.finallydata[i].num;
-        localStorage.setItem('orderdatas',JSON.stringify(this.finallydata));//本地存储
-
+        
       }
+     localStorage.setItem('orderdatas',JSON.stringify(this.finallydata));//本地存储
       return sum
+      
+
     },
   },
   watch:{
@@ -93,7 +96,7 @@ export default {
     reduce(id){//减少
       for(let i = 0; i < this.finallydata.length;i++){
         if(id == this.finallydata[i].id){
-          if(this.finallydata[i].num == 1){//等于11是不进行操作也就是默认禁用
+          if(this.finallydata[i].num == 1){//等于1时不进行操作也就是默认禁用
           }else{
             this.finallydata[i].num--;
             var index = this.$store.state.id.indexOf(id);//更改vuex里面的数据可以对页面里的数据同样产生影响，获得所选取的id
@@ -106,15 +109,19 @@ export default {
     deletedit(id){//删除
       for(let i = 0; i <  this.finallydata.length;i++){
         if(id == this.finallydata[i].id){
-            this.finallydata.splice(i,1); 
+            this.finallydata.splice(i,1);
           }    
       }
-      if(this.finallydata.length == 0){
-        localStorage.clear();
+      for(let i = 0; i < this.$store.state.id.length;i++){
+        if(id == this.$store.state.id[i]){
+          this.$store.state.id.splice(i,1);
+          i--;
+        }
+
       }
+
     },
     getorderdata(){
- 
       for(let key in this.newobj ){
         for(let i = 0; i < this.orderdata.length;i++){//将一个数组和一个对象里的内容进行部分合并存入新数组里
         if(key == this.orderdata[i].id){
@@ -129,28 +136,33 @@ export default {
         
         }
       }
-      }
-      
-
-      
-
-    
+      }  
+   
     }
     
   },
   created() { 
-    console.log(this.$store.state.id)
-    for (let i = 0; i < this.$store.state.id.length; i++) {//数组去重并存入对象
+    console.log('ggggg');
+    if(!this.finallydata){
+      this.finallydata == JSON.parse(localStorage.getItem('orderdatas'))
+    }
+    else{
+      for (let i = 0; i < this.$store.state.id.length; i++) {//数组去重并存入对象
       if (!this.newobj[this.$store.state.id[i]]) {
         this.newobj[this.$store.state.id[i]] = 1;
       } else {
         this.newobj[this.$store.state.id[i]]++;
       }
     }
+    }
     console.log(this.newobj)
+
+    
+    
+    
     },
   mounted() {
-    this.id = this.$store.state.id;//接收id
+   
     this.getorder();
    
     
