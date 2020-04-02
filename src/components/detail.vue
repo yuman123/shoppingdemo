@@ -35,14 +35,16 @@ export default {
   data() {
     return {
       id: 0,
-      detaillist: {}
+      detaillist: {
+        rating:{}
+      }
     };
   },
   methods: {
     goback() {
       this.$router.push("/home");
     },
-    getdetail() {
+    async getdetail() {
       this.$http
         .get("http://localhost:8080/api/goods")
         .then(res => {

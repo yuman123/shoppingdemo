@@ -4,6 +4,9 @@
             <i class="iconfont" :class="list.icon" :style="{background:list.color}"></i>
             <label>{{list.title}}</label>
         </div>
+     
+          <!-- <input type="button" class="btn btn-primary" value="chufa" @click="myclick"> -->
+       
     </div>
 </template>
 
@@ -11,6 +14,7 @@
 export default {
   data () {
     return {
+      sommsg:'我是子组件的数据',
       lists:[
         {title:'美食1','icon':'icongouwuchekong',color:'#f00'},
         {title:'美食2','icon':'iconfaxian',color:'#fa69b9'},
@@ -21,6 +25,12 @@ export default {
         {title:'美食7','icon':'icongouwuchekong',color:'#f13'},
         {title:'美食8','icon':'iconcruise-ship',color:'#f60'}
       ]
+    }
+    
+  },
+  methods:{
+    myclick(){
+      this.$emit('func',this.sommsg)//获取父组件的方法并执行
     }
   }
 }

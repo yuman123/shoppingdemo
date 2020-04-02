@@ -24,6 +24,9 @@ export default {
      
     }
   },
+  methods:{
+  },
+  
   props:['lists']//父子组件传值
   
 }

@@ -69,7 +69,7 @@ html,body {
   text-align: center;
 }
 .banner .banner-circle .selected {
-  background: rgba(0,0,0,.8);
+  background: rgba(240, 235, 235, 0.8);
 }
 .banner img {
   width: 100%;

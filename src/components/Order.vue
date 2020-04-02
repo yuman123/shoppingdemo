@@ -1,8 +1,11 @@
 <template>
   <div class="order">
     <h1>{{msg}}</h1>
+    <!-- <input type="text" v-model="firstname">
+    <input type="text" v-model="lastname">
+    <input type="text" v-model="fullname" disabled> -->
     <ul>
-    <li v-for="(item,i) in this.finallydata" :key="i" style="width:100%;float:left"> <!--循环对象跟循环数组不同--> 
+    <li v-for="(item,i) in finallydata" :key="i" style="width:100%;float:left" v-cloak> 
     <div>
     <img :src="item.picture" :alt="item.name" style="float:left;width:20%;" >
      <p>{{item.name}}</p>
@@ -26,10 +29,15 @@ export default {
       id: [],//接收的id
       newobj: {},//包含数量和id(已去重)
       orderdata:[],//包含这个id下的所有数据
-      finallydata:[] //整合以后的数据
+      finallydata:[],//整合以后的数据
+      // firstname:'',
+      // lastname:''
     };
   },
   computed:{ 
+    // fullname(){
+    //   return this.firstname + '-' + this.lastname
+    // },
     totalprice(){//时时刻刻计算总价
     // if(this.finallydata.length >= 2){
     //   for(let k = 0;k < this.finallydata.length;k++){
@@ -122,7 +130,7 @@ export default {
 
     },
     getorderdata(){
-      for(let key in this.newobj ){
+      for(let key in this.newobj ){//循环对象跟循环数组不同
         for(let i = 0; i < this.orderdata.length;i++){//将一个数组和一个对象里的内容进行部分合并存入新数组里
         if(key == this.orderdata[i].id){
             this.finallydata.push({

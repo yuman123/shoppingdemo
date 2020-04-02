@@ -1,10 +1,10 @@
 const goods = require("./data/goods.json");
 module.exports = {
-    outputDir: 'dist',//构建输出目录
-    assetsDir: 'assets',//静态资源目录
+    // outputDir: 'dist',//构建输出目录
+    // assetsDir: 'assets',//静态资源目录
     lintOnSave: false,//是否开启eslint保存检测
     devServer: {
-        open: true, 
+        open: true, //在浏览器自动打开
         proxy: {
             //配置跨域
             'api': {
