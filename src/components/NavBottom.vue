@@ -1,8 +1,11 @@
 <template>
     <div class="nav-bottom">
+     
        <router-link v-for="(list,i) in lists" :key="i" :to='list.url'>
+       
        <i class="iconfont" :class="list.content"></i>
-       <label for="">{{list.title}}</label>
+         <mt-badge size="small" v-if="i == 2" color="red" style="position:relative;top:-9px;right:4px;padding:2px 3px;">{{productNums}}</mt-badge>
+       <label for="title">{{list.title}}</label>
        </router-link>
      
      </div>
@@ -21,8 +24,17 @@ export default {
         //     {title:'订单',url:'/order',content:'icondingdan'},
         //     {title:'我的',url:'/mine',content:'iconwodedangxuan'}
         // ]
+        productid:this.$store.state.id,
+        
      
     }
+  },
+  computed:{
+    productNums:function(){ 
+      return this.productid.length;
+     
+    }
+
   },
   methods:{
   },
@@ -32,7 +44,7 @@ export default {
 }
 </script>
 <style scoped>
-.active {
+.active,.icon-car-count {
   color: red;
   }
 </style>

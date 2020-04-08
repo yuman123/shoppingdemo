@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-   <h1>{{msg}}</h1>
+   <mt-header  :title="msg" style="background-color:#f9f9b4;color:black;">
+    </mt-header>
   </div>
 </template>
 

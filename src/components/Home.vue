@@ -1,9 +1,15 @@
 <template>
   <div class="home">
+    <mt-header  :title="msg" style="background-color:#f9f9b4;color:black;">
+        <mt-button slot="right">
+          <router-link to="/saoyisao"><i class="iconfont saoyisao"></i></router-link>
+        </mt-button>
+    </mt-header>
+
     <input type="button" value="开始" @click="startit">
     <input type="button" value="暂停" @click="stop">
-   <h1>{{msg}}</h1>
   <category @func="show"></category>
+  
    <banner/>
    <list/>
   </div>
@@ -12,7 +18,7 @@
 import banner from './Banner'
 import category from './Category'
 import list from './Lists'
-
+import { Header } from 'mint-ui';
 
 export default {
   data(){
@@ -53,5 +59,14 @@ export default {
   
 }
 </script>
+<style scoped>
+.iconfont.saoyisao{
+  background: url('../assets/img/saoyisao.png') no-repeat center;
+ background-size: 30px 30px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+</style>
 
   

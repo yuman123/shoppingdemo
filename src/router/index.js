@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    redirect:home
+    redirect:'/home'
   },
   {
     path:'/home',
@@ -32,10 +32,16 @@ const routes = [
     path: '/detail/:id',
     name: 'detail',
     component: () => import('../components/detail.vue')
+  },
+  {
+    path: '/saoyisao',
+    name: 'saoyisao',
+    component: () => import('../components/saoyisao.vue')
   }
 ]
 
 const router = new VueRouter({
+  mode:'history',
   linkActiveClass:'active',//添加样式选中的class名
   routes
 })
