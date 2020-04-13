@@ -1,6 +1,10 @@
 <template>
   <div>
-    <button @click="goback()" style="float:left;">返回首页</button>
+         <mt-header :title="this.detaillist.name +'商品详情'">
+  <router-link to="/home" slot="left">
+    <mt-button icon="back">返回</mt-button>
+  </router-link>
+</mt-header>
     <img :src="this.detaillist.picture" style="width:100%" />
     <p
       style="color:#60abd8"
@@ -41,9 +45,6 @@ export default {
     };
   },
   methods: {
-    goback() {
-      this.$router.push("/home");
-    },
     async getdetail() {
       this.$http
         .get("http://localhost:8080/api/goods")

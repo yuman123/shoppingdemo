@@ -13,7 +13,6 @@ Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
-
 new Vue({
   router,
   store,

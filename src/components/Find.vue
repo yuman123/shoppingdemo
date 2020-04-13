@@ -8,9 +8,23 @@
     <p>
       <mt-field label="评论:" placeholder="请输入评论" type="textarea" rows="4" v-model="comment"></mt-field>
     </p>
-    <mt-button type="primary" @click="this.loadcomment">提交</mt-button>
-    <ul v-for="(item,i) in this.commentList" :key="i">
-      <li>{{item.name}}说：{{item.comment}} </li>
+    <mt-button type="primary" size="large" @click="this.publishComment">发表评论</mt-button>
+    <ul class="comment-box">
+    <li v-for="(item,i) in this.commentList" :key="i">
+      <img
+            :src="item.user_pic_url"
+            style="border:1px solid #f42;border-radius:50% 50%;width:10%;height:10%;float:left;"
+          />
+          <span style="color:lightgreen">网友{{item.user_name}}</span>
+          说:{{item.comment}}
+          <br />
+
+          <span style="float:right;color:#ff4488">{{item.comment_time | dataFormat}}</span>
+          <br />
+          <br />
+          <!-- 4-10 要上线的页面 广州 镇江 百年建筑 有色 -->
+   
+    </li>
     </ul>
   
   </div>
@@ -25,18 +39,16 @@ export default {
       username:'',
       comment:'',
       commentList:[],
-     
-
     }
   },
 
 methods:{
-  loadcomment(){
+  publishComment(){
    if(this.username && this.comment){
      let a = [];
-    a.push({name:this.username,comment:this.comment});
+    a.push({user_name:this.username,comment:this.comment,comment_time:Date.parse(new Date()) / 1000});
     console.log(a);
-     this.commentList = this.commentList.concat(a);
+     this.commentList = a.concat(this.commentList);
     console.log(this.commentList);
     this.username = '';
     this.comment = '';
@@ -47,7 +59,33 @@ methods:{
    }
     
   },
+  loadComment(){
+    this.$http.get('http://localhost:8080/api/ratings')
+    .then(res => {
+      if(res.status == 200){
+        this.commentList = res.data.data.comments;
+      }
+    })
+    .catch(error =>{
+      console.log(error)
+    })
+  }
 },
+mounted(){
+  this.loadComment()
+},
+filters:{
+  dataFormat(data){
+     var value = new Date(data * 1000)
+     var year = value.getFullYear(); 
+     var month=value.getMonth()+1; 
+     var date=value.getDate(); 
+     var hour=value.getHours(); 
+     var minute=value.getMinutes(); 
+     var second=value.getSeconds(); 
+     return year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second; 
+  }
+}
 }
 </script>
 <style scoped>
@@ -55,6 +93,10 @@ methods:{
 #app .home p,
 li {
   text-align: left;
+}
+.comment-box{
+  margin-top: 10px;
+  margin-bottom: 60px;
 }
 
 </style>

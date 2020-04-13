@@ -2,7 +2,7 @@
   <div class="home">
     <mt-header  :title="msg" style="background-color:#f9f9b4;color:black;">
         <mt-button slot="right">
-          <router-link to="/saoyisao"><i class="iconfont saoyisao"></i></router-link>
+          <router-link to="/home/saoyisao"><i class="iconfont saoyisao"></i></router-link>
         </mt-button>
     </mt-header>
 
