@@ -6,8 +6,11 @@ module.exports = {
     lintOnSave: false,//是否开启eslint保存检测
     devServer: {
         open: true, //在浏览器自动打开
+<<<<<<< HEAD
         hot:true,
         // disableHostCheck: true, // 禁用webpack热重载检查 解决热更新失效问题
+=======
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
         // proxy: {
         //     //配置跨域
         //     'api': {

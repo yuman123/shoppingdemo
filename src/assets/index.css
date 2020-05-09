@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html,
 body {
   margin: 0;
@@ -90,13 +91,81 @@ ul {
 
 .nav-bottom label {
   display: block;
+=======
+html,body {
+    margin:0;
+    width: 100%;
+    height: 100%;
+  }
+#app{
+  padding-bottom: 60px;
+}
+  a {
+      text-decoration: none;
+      color: #000;
+  }
+  
+  ul {
+      list-style: none;
+      margin:0;
+      padding:0;
+  }
+  #app { 
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    width: 100%;
+    height: 100%;
+  }
+  .v-enter{
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  .v-leave-to{
+    opacity: 0;
+    transform: translateX(-100%);
+    position: absolute;
+  }
+  .v-enter-active,
+  .v-leave-active{
+    transition: all 0.5s ease;
+  }
+  .nav-bottom {
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    background: #f9f9b4;
+    border-top: 1px solid #f4f4f4;
+    width: 100%;
+    padding-top: 5px;
+   
+ 
+}
+.nav-bottom > a {
+    display: inline-block;
+    width: 25%;
+    float: left;
+    outline: none;
+}
+.nav-bottom i {
+    font-size:22px;
+}
+.nav-bottom label {
+    display: block;
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
 }
 
 .banner {
   position: relative;
+<<<<<<< HEAD
   margin-bottom: 8px;
 }
 
+=======
+}
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
 .banner .banner-circle {
   position: absolute;
   bottom: 5px;
@@ -104,6 +173,7 @@ ul {
   right: 0;
   color: #fff;
 }
+<<<<<<< HEAD
 
 .banner .banner-circle li {
   display: inline-block;
@@ -121,16 +191,35 @@ ul {
   background: rgba(240, 235, 235, 0.8);
 }
 
+=======
+.banner .banner-circle li{
+  display:inline-block;
+  background: rgba(0,0,0,.3);
+  border-radius: 50%;
+  padding:5px;
+  margin:2px;
+}
+.banner .banner-circle ul {
+  text-align: center;
+}
+.banner .banner-circle .selected {
+  background: rgba(240, 235, 235, 0.8);
+}
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
 .banner img {
   width: 100%;
   margin: 0;
   padding: 0;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
 /*index-category*/
 .index-category {
   margin-top: 5%;
 }
+<<<<<<< HEAD
 
 .index-category .category {
   width: 25%;
@@ -151,12 +240,33 @@ ul {
   background: #92d85c;
 }
 
+=======
+.index-category .category {
+  width: 25%;
+  float:left;
+  text-align:center;
+}
+.index-category .category .iconfont {
+  font-size: 30px;
+  display:inline-block;
+  padding: 15%;
+  border-radius: 50%;
+  color:#fff;
+  box-shadow: 0px 0px 6px rgba(0,0,0,.5);
+}
+.index-category .category .iconfont{
+  background: #92d85c;
+}
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
 .index-category .category label {
   display: block;
   padding: 10% 0;
   color: #999;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
 /*index-category end*/
 
 /*index-main*/
@@ -166,6 +276,7 @@ ul {
   background: #27bfd2;
 }
 
+<<<<<<< HEAD
 .index-main>ul {
   margin: 10px;
 }
@@ -177,10 +288,20 @@ ul {
 }
 
 /*fixed???????????????,????????????????????????padding-bottom,?????????fixed???????*/
+=======
+.index-main >ul {
+  margin: 10px;
+}
+.list,.order{
+  padding-bottom: 60px;
+  overflow: scroll;
+}/*fixed布局会遮挡文字部分,所以给他所在容器设置了一个padding-bottom,高度与设置fixed的高度一致*/
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
 .index-main ul .lists {
   width: 50%;
   float: left;
   display: inline-block;
+<<<<<<< HEAD
   text-align: center;
   margin: 10px 0;
 }
@@ -198,18 +319,38 @@ ul {
   display: block;
 }
 
+=======
+  text-align:center;
+  margin:10px 0;
+}
+.index-main ul .lists label {
+  display:block;
+}
+.index-main ul .lists .discount{
+  color: red;
+}
+.index-main ul .lists .price-text{
+  text-decoration: line-through;
+  display:block;
+}
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
 /*index-main end*/
 .detail .goback {
   position: absolute;
   width: 50px;
   height: 50px;
+<<<<<<< HEAD
   background: rgba(0, 0, 0, .5);
+=======
+  background: rgba(0,0,0,.5);
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
   border-radius: 50%;
   line-height: 50px;
   color: #fff;
   left: 10px;
   top: 10px;
 }
+<<<<<<< HEAD
 
 .detail img {
   width: 100%;
@@ -221,6 +362,16 @@ ul {
   padding: 0 10px;
 }
 
+=======
+.detail img {
+width:100%;
+max-height:500px;
+}
+.detail p {
+text-align:left;
+padding:0 10px;
+}
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
 .detail p:first-child {
   font-size: 22px;
   font-weight: 600;

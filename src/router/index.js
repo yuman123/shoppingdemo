@@ -44,6 +44,7 @@ const router = new VueRouter({
   linkActiveClass:'active',//添加样式选中的class名
   routes
 })
+<<<<<<< HEAD
 // router.beforeEach((to, from, next) => {
 //   // 让页面回到顶部
 //   console.log(from)
@@ -51,5 +52,7 @@ const router = new VueRouter({
 //   // 调用 next()，一定要调用 next 方法，否则钩子就不会被销毁
 //  next()
 // })
+=======
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
 
 export default router

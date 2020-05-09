@@ -1,6 +1,7 @@
 <template>
   <div class="list">
     <ul>
+<<<<<<< HEAD
       <li v-for=" (v,i) in goodLists" :key="i">
         <router-link :to="'/detail/'+v.id">
           <img :src="v.picture" style="width:40%;min-height:54px;" />
@@ -54,12 +55,24 @@
   border-radius: 50% 50%;
 }
 </style>
+=======
+      <li v-for=" (v,i) in goodLists" :key="i" style="width:50%;float:left">
+          <router-link :to="'/detail/'+v.id">
+        <img :src="v.picture" style="width:30%;"/></router-link>
+        <p>{{v.name.slice(0,9)}}</p>
+        <p>价格: <b style="color:#f42;">{{v.min_price}}￥</b><button @click="BuyIt(v.id)">购买</button></p>
+      </li> 
+    </ul>
+  </div>
+</template>
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
 
 <script>
 export default {
   data() {
     return {
       goodLists: [],
+<<<<<<< HEAD
       count: 0,
       lists: this.$store.state.id,
       pageIndex: 0,
@@ -80,12 +93,27 @@ export default {
           console.log(res);
           if (res.status == 200) {
             this.goodLists = res.data.data.food_spu_tags[0].spus; //遍历商品
+=======
+      count:0,
+      lists:this.$store.state.id
+    };
+  },
+  methods: {
+    getLists() {
+      this.$http
+        .get("http://localhost:8080/api/goods")
+        .then(res => {
+          console.log(res);
+          if (res.status == 200) {
+            this.goodLists = res.data.data.food_spu_tags[0].spus;//遍历商品
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
           }
         })
         .catch(error => {
           console.log(error);
         });
     },
+<<<<<<< HEAD
     windowScroll() {
       // 滚动条距离页面顶部的距离
       // 以下写法原生兼容
@@ -128,6 +156,17 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener("wheel", this.windowScroll);
+=======
+async BuyIt(id){ 
+      console.log(id);
+       this.$store.commit( 'setId',id);//利用vuex传递id
+       this.count++;
+       console.log(this.$store.state.id);
+    }
+  },
+  mounted() {
+    this.getLists();
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
   }
 };
 </script>

@@ -9,9 +9,12 @@
     <p
       style="color:#60abd8"
     >{{this.detaillist.name}}&nbsp;&nbsp;{{this.detaillist.month_saled_content}}&nbsp;&nbsp;好评度:{{this.detaillist.rating.like_ratio}}&nbsp;&nbsp;</p>
+<<<<<<< HEAD
     <mt-button @click="BuyIt(id)">购买</mt-button>
     <transition
           @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter"><i :class="id" class="ball" v-show="showBall"></i></transition>
+=======
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
     <div v-if="this.detaillist.rating.snd_title =='暂无'">
       <b>{{this.detaillist.rating.title}}</b>
       {{this.detaillist.rating.snd_title}}
@@ -42,14 +45,18 @@ export default {
   data() {
     return {
       id: 0,
+<<<<<<< HEAD
       showBall:false,
       count: 0,
+=======
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
       detaillist: {
         rating:{}
       }
     };
   },
   methods: {
+<<<<<<< HEAD
     getdetail() {
       this.$http
         .get("/api/goods")
@@ -62,12 +69,25 @@ export default {
               }
             }
             }
+=======
+    async getdetail() {
+      this.$http
+        .get("http://localhost:8080/api/goods")
+        .then(res => {
+          if (res.status == 200) {
+            for (let i = 0;i < res.data.data.food_spu_tags[0].spus.length;i++) {
+              if (res.data.data.food_spu_tags[0].spus[i].id ==this.$route.params.id) {
+                this.detaillist = res.data.data.food_spu_tags[0].spus[i];
+              }
+            }
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
             console.log(this.detaillist);
           }
         })
         .catch(error => {
           console.log(error);
         });
+<<<<<<< HEAD
     },
     BuyIt(id) {//
      this.showBall = !this.showBall;
@@ -90,6 +110,8 @@ export default {
     afterEnter(el){
       this.showBall = !this.showBall;
 
+=======
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
     }
   },
   mounted() {
@@ -98,6 +120,7 @@ export default {
     this.getdetail();
   }
 };
+<<<<<<< HEAD
 </script>
 <style>
 .ball{
@@ -112,3 +135,6 @@ export default {
 
 }
 </style>
+=======
+</script>
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8

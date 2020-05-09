@@ -1,6 +1,12 @@
 <template>
+<<<<<<< HEAD
   <div id="order">
     <mt-header :title="msg" style="background-color:#f9f9b4;color:black;"></mt-header>
+=======
+  <div class="order">
+    <mt-header  :title="msg" style="background-color:#f9f9b4;color:black;">
+    </mt-header>
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
     <!-- <input type="text" v-model="firstname">
     <input type="text" v-model="lastname">
     <input type="text" v-model="fullname" disabled>-->
@@ -11,6 +17,7 @@
         style="width:100%;float:left;padding-bottom:3px;"
         v-cloak
       >
+<<<<<<< HEAD
         <img :src="item.picture" :alt="item.name" style="float:left;width:20%;" />
         <p style="text-align:left;">{{item.name}}</p>
         <div style="font-size:13px;">
@@ -39,6 +46,37 @@
           icon="el-icon-delete"
           @click="deletedit(item.id)"
         ></el-button>
+=======
+      
+          <img :src="item.picture" :alt="item.name" style="float:left;width:20%;" />
+          <p style="text-align:left;">{{item.name}}</p>
+          <div style="font-size:13px;">
+            <span>购买数量:</span>
+            <el-button
+              @click="reduce(item.id)"
+              type="danger"
+              size="mini"
+              icon="el-icon-minus"
+              style="padding:3px 6px;"
+            ></el-button>
+            <span style="color:#f60;dispaly:inline-block;padding:0 3px;">{{item.num}}</span>
+            <el-button
+              @click="add(item.id)"
+              type="danger"
+              style="padding:3px 6px;"
+              icon="el-icon-plus"
+            ></el-button>&nbsp;&nbsp;单价:
+            <span style="color:#f60">{{item.price}}￥</span>总价:
+            <b style="color:#f60">{{item.sum}}￥</b>
+          </div>
+          <el-button
+            style="float:right;margin-right:2%;outline-style:none"
+            type="info"
+            size="mini"
+            icon="el-icon-delete"
+            @click="deletedit(item.id)"
+          ></el-button>
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
       </li>
     </ul>
     <div style="clear:both;"></div>
@@ -50,12 +88,18 @@
   </div>
 </template>
 <style scoped>
+<<<<<<< HEAD
 [v-clock] {
   display: none;
 }
 #order {
   padding-bottom: 60px;
 }
+=======
+[v-clock]{
+  display: none;
+}
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
 </style>
 <script>
 export default {
@@ -102,6 +146,7 @@ export default {
   },
   watch: {},
   methods: {
+<<<<<<< HEAD
     async getorder() {
       await this.$http
         .get("/api/goods")
@@ -130,6 +175,25 @@ export default {
             }
 
             console.log(this.orderdata);
+=======
+    getorder() {
+      this.$http
+        .get("http://localhost:8080/api/goods")
+        .then(res => {
+          if (res.status == 200) {
+            for (
+              let i = 0;
+              i < res.data.data.food_spu_tags[0].spus.length;
+              i++
+            ) {
+              for (let key in this.newobj) {
+                if (res.data.data.food_spu_tags[0].spus[i].id == key) {
+                  this.orderdata.push(res.data.data.food_spu_tags[0].spus[i]);
+                }
+              }
+            }
+
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
             this.getorderdata();
           }
         })
@@ -148,11 +212,15 @@ export default {
     },
     reduce(id) {
       //减少
+<<<<<<< HEAD
       console.log(id);
+=======
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
       for (let i = 0; i < this.finallydata.length; i++) {
         if (id == this.finallydata[i].id) {
           if (this.finallydata[i].num == 1) {
             //等于1时不进行操作也就是默认禁用
+<<<<<<< HEAD
             this.finallydata[i].num = 1;
           } else {
             this.finallydata[i].num--;
@@ -160,6 +228,12 @@ export default {
             // 传入的id是数值类型，indexOf()查找的是字符串类型，所以找不到返回-1
             this.$store.state.id.splice(index, 1); //删除一个
             console.log(this.$store.state.id);
+=======
+          } else {
+            this.finallydata[i].num--;
+            var index = this.$store.state.id.indexOf(id); //更改vuex里面的数据可以对页面里的数据同样产生影响，获得所选取的id
+            this.$store.state.id.splice(index, 1); //删除一个
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
           }
         }
       }
@@ -200,7 +274,11 @@ export default {
   created() {
     console.log("ggggg");
     if (!this.finallydata) {
+<<<<<<< HEAD
       this.finallydata = JSON.parse(localStorage.getItem("orderdatas"));
+=======
+      this.finallydata == JSON.parse(localStorage.getItem("orderdatas"));
+>>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
     } else {
       for (let i = 0; i < this.$store.state.id.length; i++) {
         //数组去重并存入对象
