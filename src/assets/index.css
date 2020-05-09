@@ -1,0 +1,227 @@
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#app {
+  padding-bottom: 60px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+  :root {
+  overflow-x: hidden;
+  }
+  
+  :root body {
+  position: absolute;
+  }
+  /* :root 这个 CSS 伪类匹配文档树的根元素。对于 HTML 来说，:root 表示 <html> 元素，除了优先级更高之外，与 html 选择器相同 */
+  body {
+  width: 100%;
+  overflow-x: hidden;
+  }
+  /* 解决navbottom滑动时出现横向滚动条*/
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  width: 100%;
+  height: calc(100% - 60px);
+}
+
+.home,
+.find,
+.order,
+.mine {
+  overflow: hidden;
+}
+
+.slide-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.slide-leave-to {
+  opacity: 0;
+  transform: translateX(-100%);
+  position: absolute;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 1s ease;
+}
+
+.nav-bottom {
+  height: 50px;
+  position: fixed !important;
+  bottom: 0;
+  background: #f9f9b4;
+  border-top: 1px solid #f4f4f4;
+  left: 0;
+  right: 0;
+  padding-top: 5px;
+  /* top: calc(100% - 55.8px); */
+}
+
+.nav-bottom>a {
+  display: inline-block;
+  width: 25%;
+  float: left;
+  outline: none;
+}
+
+.nav-bottom i {
+  font-size: 22px;
+}
+
+.nav-bottom label {
+  display: block;
+}
+
+.banner {
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.banner .banner-circle {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  color: #fff;
+}
+
+.banner .banner-circle li {
+  display: inline-block;
+  background: rgba(0, 0, 0, .3);
+  border-radius: 50%;
+  padding: 5px;
+  margin: 2px;
+}
+
+.banner .banner-circle ul {
+  text-align: center;
+}
+
+.banner .banner-circle .selected {
+  background: rgba(240, 235, 235, 0.8);
+}
+
+.banner img {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/*index-category*/
+.index-category {
+  margin-top: 5%;
+}
+
+.index-category .category {
+  width: 25%;
+  float: left;
+  text-align: center;
+}
+
+.index-category .category .iconfont {
+  font-size: 30px;
+  display: inline-block;
+  padding: 15%;
+  border-radius: 50%;
+  color: #fff;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, .5);
+}
+
+.index-category .category .iconfont {
+  background: #92d85c;
+}
+
+.index-category .category label {
+  display: block;
+  padding: 10% 0;
+  color: #999;
+}
+
+/*index-category end*/
+
+/*index-main*/
+.index-main {
+  width: 100%;
+  height: 100%;
+  background: #27bfd2;
+}
+
+.index-main>ul {
+  margin: 10px;
+}
+
+.list,
+.order {
+  padding-bottom: 60px;
+  overflow: scroll;
+}
+
+/*fixed???????????????,????????????????????????padding-bottom,?????????fixed???????*/
+.index-main ul .lists {
+  width: 50%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.index-main ul .lists label {
+  display: block;
+}
+
+.index-main ul .lists .discount {
+  color: red;
+}
+
+.index-main ul .lists .price-text {
+  text-decoration: line-through;
+  display: block;
+}
+
+/*index-main end*/
+.detail .goback {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, .5);
+  border-radius: 50%;
+  line-height: 50px;
+  color: #fff;
+  left: 10px;
+  top: 10px;
+}
+
+.detail img {
+  width: 100%;
+  max-height: 500px;
+}
+
+.detail p {
+  text-align: left;
+  padding: 0 10px;
+}
+
+.detail p:first-child {
+  font-size: 22px;
+  font-weight: 600;
+}
