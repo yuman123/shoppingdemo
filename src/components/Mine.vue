@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div id="mine">
     <mt-header  style="background-color:#eee;color:black;height:80px;font-size:20px">
       <div slot="left" class="slotLeft"><div class="avatar"></div>tiantian</div>
@@ -12,18 +11,6 @@
       </div>
       <div class="myMoney"></div>
       <!-- <ul class="container" ref="container" @touchstart="gtouchstart" @touchmove="gtouchmove" @touchend="gtouchend" >
-=======
-  <div class="home">
-    <mt-header :title="msg" style="background-color:#f9f9b4;color:black;"></mt-header>
-    <div class="containerBox" ref="containerBox">
-      <ul
-        class="container"
-        ref="container"
-        @touchstart="gtouchstart"
-        @touchmove="gtouchmove"
-        @touchend="gtouchend"
-      >
->>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
         <li class="content">11</li>
         <li class="content">22</li>
         <li class="content">33</li>
@@ -34,7 +21,6 @@
         <li class="content">88</li>
         <li class="content">99</li>
         <li class="content">100</li>
-<<<<<<< HEAD
       </ul> -->
     </div>
 
@@ -105,12 +91,6 @@
 
 }
 </style>
-=======
-      </ul>
-    </div>
-  </div>
-</template>
->>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
 
 <script>
 export default {
@@ -134,13 +114,8 @@ export default {
     },
     gtouchmove(e) {
       if (this.flag) {
-<<<<<<< HEAD
         // console.log(e)
         // console.log(this.$refs.container.left);
-=======
-        console.log(e)
-        console.log(this.$refs.container.left);
->>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
       this.moveX = this.endX + (e.touches[0].clientX - this.startX);
         this.$refs.container.left = this.moveX +'px';
       }
@@ -167,20 +142,3 @@ export default {
   }
 };
 </script>
-<<<<<<< HEAD
-=======
-<style >
-.containerBox{
-  position: absolute;
-}
-.container {
-  overflow: hidden;
-  height: 18px;
-}
-.content {
-  float: left;
-  list-style: none;
-  padding: 0 29px 0 0;
-}
-</style>
->>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8

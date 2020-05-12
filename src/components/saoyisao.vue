@@ -5,7 +5,6 @@
     <mt-button icon="back">返回</mt-button>
   </router-link>
 </mt-header>
-<<<<<<< HEAD
 <div class="container">
     <span class="text">文本</span>
     <span class="text"></span>
@@ -16,8 +15,6 @@
 <div class="parent1">
   <div>middle</div>i'm parent's x
 </div>
-=======
->>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
 
   </div>
 </template>
@@ -29,7 +26,6 @@ export default {
 </script>
 
 <style>
-<<<<<<< HEAD
 .text {
     display: inline-block;
     width: 100px;
@@ -61,7 +57,4 @@ export default {
     vertical-align: middle;
   }
   /* middle就是让设置display:inline-block的元素的后面元素基于他的中间对齐 */
-=======
-
->>>>>>> d1cc9285e884d54c1684ac036fe550836d822de8
 </style>
