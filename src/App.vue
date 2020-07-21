@@ -30,7 +30,7 @@ export default {
   watch: {
     "$route.path": function(newVal, oldVal) {
     
-      //wtch可以监听到路由的变化
+      //watch可以监听到路由的变化
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
       console.log(oldVal + "-" + newVal);
