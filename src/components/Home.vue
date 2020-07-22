@@ -19,7 +19,9 @@
     <category @func="show"></category>
 
     <banner />
+    <keep-alive>
     <list />
+    </keep-alive>
   </div>
 </template>
 <script>
@@ -76,7 +78,7 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style>
 #home{
     height: 100%;
 }

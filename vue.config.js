@@ -4,6 +4,7 @@ module.exports = {
     outputDir: 'dist',//构建输出目录
     assetsDir: 'assets',//静态资源目录
     lintOnSave: false,//是否开启eslint保存检测
+    publicPath:'./',//打包的时候需要，不然路径会有问题
     devServer: {
         open: true, //在浏览器自动打开
         hot:true,

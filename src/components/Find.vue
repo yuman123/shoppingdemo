@@ -101,7 +101,7 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style>
 #app .find p,
 li {
   text-align: left;

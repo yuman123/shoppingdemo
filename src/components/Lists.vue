@@ -23,7 +23,7 @@
     <div class="toTop" v-show="this.pageIndex != 0" @click="goToTop"></div>
   </div>
 </template>
-<style scoped>
+<style>
 .list ul {
   height: 100%;
 }

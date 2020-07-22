@@ -51,7 +51,7 @@
     </div>
   </div>
 </template>
-<style scoped>
+<style>
 [v-clock] {
   display: none;
 }
