@@ -209,7 +209,7 @@ export default {
               id: this.orderdata[i].id,
               price: this.orderdata[i].min_price,
               sum: this.newobj[key] * this.orderdata[i].min_price,
-              choose:false
+              choose:true
             });
           }
         }

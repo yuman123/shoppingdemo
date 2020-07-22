@@ -10,6 +10,7 @@ export default new Vuex.Store({
   mutations: {
     setId(state, id) { //每次购买都会将购买的id传入
       state.id.push(id);
+      localStorage.setItem("productID", JSON.stringify(state.id));
     },
     reduceId(state, id) {//减少
       var index = state.id.indexOf(id.toString());

@@ -11,7 +11,8 @@
     >{{this.detaillist.name}}&nbsp;&nbsp;{{this.detaillist.month_saled_content}}&nbsp;&nbsp;好评度:{{this.detaillist.rating.like_ratio}}&nbsp;&nbsp;</p>
     <mt-button @click="BuyIt(id)">购买</mt-button>
     <transition
-          @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter"><i :class="id" class="ball" v-show="showBall" ref="ball"></i></transition>
+          @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter"><i :class="id" class="ball" v-show="showBall" ref="ball"></i>
+    </transition>
     <div v-if="this.detaillist.rating.snd_title =='暂无'">
       <b>{{this.detaillist.rating.title}}</b>
       {{this.detaillist.rating.snd_title}}
@@ -43,6 +44,7 @@ export default {
       id: 0,
       showBall:false,
       count: 0,
+      timer:null,
       detaillist: {
         rating:{}
       }
@@ -68,13 +70,16 @@ export default {
           console.log(error);
         });
     },
-    BuyIt(id) {//
-     this.showBall = !this.showBall;
-      console.log(id);
+    BuyIt(id) {//防抖 一定时间内操作了重置定时器，没有操作就发送数据
       this.$store.commit("setId", id); //利用vuex传递id
       this.count++;
-      console.log(this.$store.state.id);
-      
+    if(this.timer){ 
+      clearTimeout(this.timer);
+    }
+    this.timer = setTimeout(()=>{
+      this.showBall = !this.showBall
+    },500);//0.5正好是一次动画的时间
+
     },
     beforeEnter(el) {
       console.log(el)

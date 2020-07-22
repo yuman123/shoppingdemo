@@ -121,10 +121,10 @@ export default {
         } else {
           clearInterval(intertal);
           this.pageIndex = 0;
-          this.$refs.moreData.innerText = "点击加载更多";
-          this.$refs.moreData.$el.textContent = "点击加载更多";
-          this.noMore = false;
-          this.getLists();
+          // this.$refs.moreData.innerText = "点击加载更多";
+          // this.$refs.moreData.$el.textContent = "点击加载更多";
+          // this.noMore = false;
+          // this.getLists();
         }
       }, 10);
       // document.body.scrollTop = 0;
